@@ -12,6 +12,18 @@ and open the template in the editor.
     <body>
         <?php
         // put your code here
+        
+        //$_POST
         ?>
+        
+        
+        <form name="mainform" action="index.php" method="post">
+            
+            Full name: <input type="text" name="fullname" value="" /> <br />
+            
+            <input type="submit" value="Submit" />
+            
+        </form>
+        
     </body>
 </html>
