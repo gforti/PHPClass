@@ -10,42 +10,41 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
+        
         <?php
-        // put your code here
+        $dbh = new PDO("mysql:host=localhost;port=3306;dbname=phplab","root","");
+        $stmt = $dbh->prepare('SELECT fullname, email, comments FROM week3');
+        $stmt->execute();
         
-        //$_POST
+         
+         $result = $stmt->fetchAll();
+         
+         /*
+          $result[0]["fullname"] = "tedsfs";
+          
+          */
+         
+         //var_dump($result);
         
-        //echo $_POST["fullname"];
-        
-        //print_r($_POST);
-        
-            $fullname = "";
-            $email = "";
-            $comments = "";
-            
-            if ( count($_POST) ) {
-               
-                 if ( array_key_exists("fullname", $_POST) ) {
-                     $fullname = $_POST["fullname"];
-                 }
-                 
-                 if ( array_key_exists("email", $_POST) ) {
-                     $email = $_POST["email"];
-                 }
-                 
-                 if ( array_key_exists("comments", $_POST) ) {
-                     $comments = $_POST["comments"];
-                 }
-
-            }
+          if ( count($result) ) {
+            echo "<table border='1'>";
+            foreach($result as $row) {
+                 echo "<tr><td>", $row["fullname"], "</td><td>", $row["email"],
+                         "</td><td>", $row["comments"], "</td></tr>";
+            }  
+            echo "</table>";
+          } else {
+            echo "No rows returned.";
+          }
+       
         ?>
         
-        
-        <form name="mainform" action="index.php" method="post">
+       
+        <form name="mainform" action="processform.php" method="post">
             
-            Full name: <input type="text" name="fullname" value="<?php echo $fullname; ?>" /> <br />
-            Email: <input type="text" name="email" value="<?php echo $email; ?>" /> <br />
-            Comments: <br /> <textarea cols="20" rows="5" name="comments"><?php echo $comments; ?></textarea> <br />
+            Full name: <input type="text" name="fullname" value="" /> <br />
+            Email: <input type="text" name="email" value="" /> <br />
+            Comments: <br /> <textarea cols="20" rows="5" name="comments"></textarea> <br />
             <input name="submit" type="submit" value="Submit" />
             
         </form>
