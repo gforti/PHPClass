@@ -14,8 +14,22 @@
 class Validator {
     //put your code here
       
-    public static function emailIsValid( $email ) {
-        if ( is_string($email) && !empty($email) ) {
+    public static function emailIsValid( $str ) {
+        if ( is_string($str) && !empty($str) ) {
+            return true;
+        }        
+        return false; 
+    }
+    
+    public static function usernameIsValid( $str ) {
+        if ( is_string($str) && !empty($str) ) {
+            return true;
+        }        
+        return false; 
+    }
+    
+    public static function passwordIsValid( $str ) {
+        if ( is_string($str) && !empty($str) ) {
             return true;
         }        
         return false; 

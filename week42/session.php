@@ -29,14 +29,14 @@ and open the template in the editor.
         echo $_SESSION["counter"];
         
         
-        if ( $_SESSION["maxlife"] > (time() ) ){
+        if ( isset($_SESSION["maxlife"]) && $_SESSION["maxlife"] > (time() - Config::MAX_SESSION_TIME ) ){
             echo "Sorry you timed out";
             session_destroy();
         } else {
              $_SESSION["maxlife"] = (time() + Config::MAX_SESSION_TIME);
         }
         
-               
+         
         /*
         echo $_SESSION["maxlife"];
         
