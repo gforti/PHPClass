@@ -10,6 +10,9 @@ and open the template in the editor.
         <title><?php echo $_GET["title"]; ?></title>
     </head>
     <body>
+        
+        <a href="week4/index.php"> week4</a>
+        
         <?php
         
         $p = "";
