@@ -31,7 +31,25 @@ class Signup extends DB {
     }
     
     public function entryIsValid(){
+        $isValid = true;
+        if ( count($_POST) ) {
+            
+            if ( array_key_exists("email", $_POST) ) {
+                
+                if ( !Validator::emailIsValid($_POST["email"]) ) {
+                    $this->errors["email"] = "Email is not valid.";
+                    $isValid = false;
+                }                
+            } else {
+                $this->errors["email"] = "Email is missing.";
+                $isValid = false;
+            }
+            
+        } else {
+            $isValid = false;
+        }
         
+        return $isValid;
     }
     
     public function saveEntry() {
