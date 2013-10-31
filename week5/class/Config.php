@@ -18,3 +18,5 @@ class Config {
             DB_USER  = "root",
             DB_PASSWORD  = "";
 }
+
+?>

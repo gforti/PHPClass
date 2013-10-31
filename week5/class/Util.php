@@ -18,3 +18,4 @@ class Util {
         echo 'this is a test';
     }
 }
+?>

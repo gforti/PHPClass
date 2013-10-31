@@ -14,7 +14,7 @@ and open the template in the editor.
         <?php
         // put your code here
        $signup = new Signup();
-        if (  $signup->userNameIsTaken("teslllllt") ) {
+        if (  $signup->userNameIsTaken("tesdddddt") ) {
             echo '<p>user name is taken</p>';
         }
         

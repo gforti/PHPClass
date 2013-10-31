@@ -47,18 +47,10 @@ class Validator {
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             
-            if ( count($result) ) return true;
+            if (is_array($result) && count($result) ) return true;
         }
         return false;
-    }
-    
-    public static function signupEntryIsValid() {
-        
-        if ( count($_POST) ) {
-            
-        }
-       
-        return false;
-    }
-    
+    }       
 }
+
+?>
