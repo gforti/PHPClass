@@ -53,7 +53,7 @@ class Signup extends DB {
     
     public function usernameEntryIsValid() {
         
-        //if (userNameIsTaken)
+        //if ( $this->userNameIsTaken() )
         $this->errors["username"] = "Sorry username is taken."; 
         
         return ( empty($this->errors["username"]) ? true : false ) ;
