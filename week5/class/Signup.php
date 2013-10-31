@@ -67,12 +67,13 @@ class Signup extends DB {
     public function saveEntry() {
         if ( ! $this->entryIsValid() ) return false;
         $db = $this->getDB();
+        $password = sha1($_POST["password"]);
         if ( null != $db ) {
             $stmt = $db->prepare('insert into signup set username = :usernameValue, '
                     . 'email = :emailValue, password = :passwordValue');
             $stmt->bindParam(':usernameValue', $_POST["username"], PDO::PARAM_STR);
             $stmt->bindParam(':emailValue', $_POST["email"], PDO::PARAM_STR);
-            $stmt->bindParam(':passwordValue', sha1($_POST["password"]), PDO::PARAM_STR);
+            $stmt->bindParam(':passwordValue', $password, PDO::PARAM_STR);
             if ( $stmt->execute() ){
                 return true;
             }
