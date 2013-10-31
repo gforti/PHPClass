@@ -13,6 +13,13 @@ and open the template in the editor.
     <body>
         <?php
         // put your code here
+        
+            unset($_SESSION["isLoggedin"]);
+            
+            if ( !isset($_SESSION["isLoggedin"]) || $_SESSION["isLoggedin"] != true ) {
+                header("Location: login.php");                
+            }
+        
         ?>
         
          <form name="mainform" action="admin.php" method="post">

@@ -35,8 +35,20 @@ class Validator {
        return false; 
     }
     
-      public static function loginIsValid( $username, $password ) {
-        
+     public static function loginIsValidPost() {
+          if ( ! array_key_exists("username", $_POST) 
+                || ! array_key_exists("password", $_POST) ) {
+               return false;
+          }
+          return Validator::loginIsValid($_POST["username"],$_POST["password"] );
+     }
+     
+      public static function loginIsValid( $username, $password) {
+                            
+         if( ! Validator::usernameIsValid($username) 
+                    || ! Validator::passwordIsValid($password) ) {
+             return false;
+         } 
         $password = sha1($password);
         $dbCls = new DB();
         $db = $dbCls->getDB();
