@@ -17,9 +17,11 @@ and open the template in the editor.
         
         
         $gb = new Guestbook();
+        $gb->processGuesbook();
         $gb->displayGuestbook();
         
         ?>
        
+        
     </body>
 </html>

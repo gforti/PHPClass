@@ -39,4 +39,9 @@ class Guestbook extends DB {
         
     }
     
+    public function processGuesbook(){
+        //check post data
+        // put into Dababase
+    }
+    
 }
