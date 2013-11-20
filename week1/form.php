@@ -20,7 +20,10 @@ and open the template in the editor.
                 
                 // validation checks
                 
-                mail("me@gmail.com", "Post from site", $comments." contact: $email");
+                if ( mail("me@gmail.com", "Post from site", $comments." contact: $email") ) {
+                    echo '<div id="">Thanks for sending a message</div>';
+                }
+                        
                 
             }
         ?>
