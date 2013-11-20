@@ -20,10 +20,16 @@ and open the template in the editor.
          <script type="text/javascript">
              
              function makeAjaxCall() {
-                ajax.send("content.php","login=myloginname",cb);
+                ajax.send("content.php","login=test",cb);
             }
              function cb(result){
-                 document.getElementById("content").innerHTML = result;
+                 console.log(result);
+                 
+                 var results = JSON.parse(result);
+                 
+                  console.log(results);
+                 
+                 document.getElementById("content").innerHTML = results.msg;
              }
              
          </script>

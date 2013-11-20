@@ -19,6 +19,8 @@ and open the template in the editor.
          * display a message to the user indicating if the username
          * has been taken
          * 
+         * msg, username, valid
+         * 
          * You can use the ajax and json class given or jquery if you like
          * you must create the form on this page.
          * should just be an input field and should check onblur or 
