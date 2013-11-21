@@ -11,9 +11,9 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        // put your code here
         
-        /*
+        /*be sure to run setup on PHP admin before starting.
+         * 
          * create a form that will look up a user name.
          * make an ajax call to check if the user name has been taken
          * display a message to the user indicating if the username
