@@ -20,10 +20,10 @@ class AddressBook extends DB{
     public function display() {
         $db = $this->getDB();
         
-        $statement = $db->prepare('select * address, name '
+        $statement = $db->prepare('select * from address, name '
                 . 'where name.id = address.name_id');
         $statement->execute();
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         
          if ( is_array($result) && count($result) ) { 
             print_r($result);                   
