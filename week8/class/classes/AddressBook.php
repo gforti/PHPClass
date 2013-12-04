@@ -11,9 +11,23 @@
  *
  * @author GFORTI
  */
-class AddressBook {
+class AddressBook extends DB{
     //put your code here
     
     //todo process, display
+    
+    
+    public function display() {
+        $db = $this->getDB();
+        
+        $statement = $db->prepare('select * address, name '
+                . 'where name.id = address.name_id');
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        
+         if ( is_array($result) && count($result) ) { 
+            print_r($result);                   
+       }  
+    }
     
 }
