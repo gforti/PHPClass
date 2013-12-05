@@ -11,13 +11,16 @@
  *
  * @author GFORTI
  */
-class Name {
+class Name extends DB {
     //put your code here
     
     
     //todo: getname(id), getAllNames, updateName(id), deleteName(id), addName(id)
     
-    
+    public function createName() {
+        
+        return $db->lastInsertId();
+    }
     
     
 }

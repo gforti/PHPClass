@@ -25,6 +25,14 @@ class AddressBook extends DB{
         
     }
     
+    public function checkUpdates(){
+        $isPostEdit = filter_input(INPUT_POST, "edit");
+        
+        if (  NULL != $isPostEdit && Address::updateAddress($_POST)) {
+            echo '<p>Entry Updated</p>';
+        }
+        
+    }
     
     public function isEdit() {
         return ( null != $this->getEditID() );
@@ -36,12 +44,8 @@ class AddressBook extends DB{
 
 
     public function display() {
-        $db = $this->getDB();
         
-        $statement = $db->prepare('select * from address, name '
-                . 'where name.id = address.name_id');
-        $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $result = Address::getAllAddresses();
         
          if ( is_array($result) && count($result) ) { 
              
