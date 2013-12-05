@@ -72,18 +72,21 @@ class Address extends DB {
             $state = $data["state"];
             $zip = $data["zip"];
             
-            $statement = $db->prepare('update address set'
-                    .' address = :address, state = :state,'
-                    .' city = :city, zip = :zip'
-                    . 'where id = :id');
-            $statement->bindParam(':id', $id, PDO::PARAM_INT);
+            $statement = $db->prepare('update address set '
+                    .'address = :address, city = :city, '
+                    .'state = :state, zip = :zip '
+                    .'where id = :id');
             $statement->bindParam(':address', $address, PDO::PARAM_STR);
-            $statement->bindParam(':state', $state, PDO::PARAM_STR);
             $statement->bindParam(':city', $city, PDO::PARAM_STR);
+            $statement->bindParam(':state', $state, PDO::PARAM_STR);            
             $statement->bindParam(':zip', $zip, PDO::PARAM_STR);
+             $statement->bindParam(':id', $id, PDO::PARAM_INT);
+            
             if ( $statement->execute() ) {
                 return true;
             }
+            
+            print_r($statement->errorInfo());
         }
         return false;
     }
