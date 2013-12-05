@@ -80,7 +80,7 @@ class Address extends DB {
             $statement->bindParam(':city', $city, PDO::PARAM_STR);
             $statement->bindParam(':state', $state, PDO::PARAM_STR);            
             $statement->bindParam(':zip', $zip, PDO::PARAM_STR);
-             $statement->bindParam(':id', $id, PDO::PARAM_INT);
+            $statement->bindParam(':id', $id, PDO::PARAM_INT);
             
             if ( $statement->execute() ) {
                 return true;
