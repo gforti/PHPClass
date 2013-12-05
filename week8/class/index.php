@@ -26,6 +26,9 @@ and open the template in the editor.
         
         
         $ab->display();
+        
+        
+        
         ?>
         
         <br clear="all" />
@@ -36,8 +39,14 @@ and open the template in the editor.
             state <input type="text" name="state" value="" /><br />
             ZIP <input type="text" name="zip" value="" /><br />
             <br />
-            <input type="submit" value="ADD" />
-            
+            <?php 
+                if ( $ab->isEdit() ) {
+                    echo '<input type="submit" name="edit" value="Update" />';                
+                    echo '<input type="hidden" name="id" value="',,'" />';                
+                } else {
+                    echo '<input type="submit" name="create" value="ADD" />';
+                }
+            ?>
         </form>
         
     </body>

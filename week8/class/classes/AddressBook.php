@@ -26,8 +26,12 @@ class AddressBook extends DB{
     }
     
     
-    public function displayEditForm() {
-        
+    public function isEdit() {
+        return ( null != $this->getEditID() );
+    }
+    
+    public function getEditID() {
+        return filter_input(INPUT_GET, "edit");
     }
 
 
