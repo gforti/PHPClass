@@ -11,8 +11,19 @@
  *
  * @author GFORTI
  */
-class Address {
+class Address extends db {
     //put your code here
     
     // todo getAddress(id), getAllAddresses(), updateAddress(id) deleteAddress(id), createAddress()
+
+    public static function deleteAddress($id) {
+        $db = new db();
+        $statement = $db->prepare('select * from address, name '
+                . 'where name.id = address.name_id');
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        
+    }
+    
+    
 }

@@ -18,6 +18,22 @@ and open the template in the editor.
         $ab = new AddressBook();
         
         $ab->display();
+        
+        print_r($_POST);
+        print_r($_GET);
         ?>
+        
+        <br clear="all" />
+        <form action="#" method="post">
+            name <input type="text" name="name" value="" /><br />
+            Address <input type="text" name="address" value="" /><br />
+            city <input type="text" name="city" value="" /><br />
+            state <input type="text" name="state" value="" /><br />
+            ZIP <input type="text" name="zip" value="" /><br />
+            <br />
+            <input type="submit" value="ADD" />
+            
+        </form>
+        
     </body>
 </html>
