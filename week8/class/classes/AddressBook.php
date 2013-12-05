@@ -16,7 +16,21 @@ class AddressBook extends DB{
     
     //todo process, display
     
+    public function checkDeletes(){
+        $deleteID = filter_input(INPUT_GET, "delete");
+        
+        if ( NULL != $deleteID && Address::deleteAddress($deleteID) ) {
+            echo '<p>Entry Deleted</p>';
+        }
+        
+    }
     
+    
+    public function displayEditForm() {
+        
+    }
+
+
     public function display() {
         $db = $this->getDB();
         

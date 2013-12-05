@@ -11,18 +11,22 @@
  *
  * @author GFORTI
  */
-class Address extends db {
+class Address extends DB {
     //put your code here
     
     // todo getAddress(id), getAllAddresses(), updateAddress(id) deleteAddress(id), createAddress()
 
     public static function deleteAddress($id) {
-        $db = new db();
-        $statement = $db->prepare('select * from address, name '
-                . 'where name.id = address.name_id');
-        $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $dbc = new DB();
+        $db = $dbc->getDB();
+        $statement = $db->prepare('delete from address where id = :id');
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
         
+        if ( $statement->execute() ) {
+            return true;
+        }
+        
+        return false;
     }
     
     

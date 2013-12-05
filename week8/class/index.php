@@ -17,10 +17,15 @@ and open the template in the editor.
         
         $ab = new AddressBook();
         
-        $ab->display();
+        
         
         print_r($_POST);
         print_r($_GET);
+        
+        $ab->checkDeletes();
+        
+        
+        $ab->display();
         ?>
         
         <br clear="all" />
